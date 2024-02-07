@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  auth:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
